@@ -1,14 +1,16 @@
 import { useNavigate } from 'react-router-dom';
+// import { useMemo } from 'react';
 
-const withRouter = WrappedComponent => props => {
+const injectHookies = WrappedComponent => props => {
     const navigate = useNavigate();
+    // const memo = useMemo();
 
     return (
         <WrappedComponent
         {...props}
-        {...{ navigate }}
+        {...{ navigate /*, memo*/ }}
         />
     );
 };
 
-export default withRouter;
+export default injectHookies;

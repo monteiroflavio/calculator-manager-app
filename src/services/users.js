@@ -4,7 +4,7 @@ import TokenService from './tokens';
 
 class UserService {
     static #setUserId(userId) {
-        localStorage.setItem('userId', userId || 1);
+        localStorage.setItem('userId', userId);
     }
 
     static getUserId() {

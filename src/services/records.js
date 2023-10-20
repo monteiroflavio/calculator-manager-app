@@ -15,7 +15,7 @@ class RecordService {
             ...(sorting) && { sorting: sorting },
             ...(sortingField) && { "sorting-field": sortingField },
         }
-        return axios.get(this.baseURL, { params: params }).then((res) => { return res.data });
+        return axios.get(this.baseURL, { params: params }).then(res => { return res.data }).catch(_ => []);
     }
 
     async insert(operationId, a, b) {
@@ -24,7 +24,7 @@ class RecordService {
             a: a,
             ...(b) && { b: b }
         }
-        return axios.post(this.baseURL, data).then((_) => { return true; }).catch((_) => { return false });
+        return axios.post(this.baseURL, data).then((res) => { return res.data; }).catch((reason) => { return reason.response?.data });
     }
 
     async delete(recordId) {

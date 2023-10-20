@@ -14,7 +14,7 @@ import {
 
 import ValidatorService from '../services/validators';
 import UserService from '../services/users';
-import withRouter from '../utils/hooksInjection';
+import injectHookies from '../utils/hooksInjection';
 import Alert from '../components/Alert';
 
 
@@ -27,17 +27,17 @@ class Login extends React.Component {
             password: "",
             errorEmail: "",
             errorPassword: "",
-            errorLogin: "",
-            isValidEmail: this.#isValidEmail.bind(this),
-            isValidPassword: this.#isValidPassword.bind(this),
-            isValidLogin: this.#isValidPassword.bind(this),
-            validateEmail: this.#validateEmail.bind(this),
-            validatePassword: this.#validatePassword.bind(this),
-            validateForm: this.#validateForm.bind(this),
-            handleSubmit: this.#handleSubmit.bind(this),
-            authenticate: this.#authenticate.bind(this),
-            canAuthenticate: this.#canAuthenticate.bind(this)
+            errorLogin: ""
         };
+        this.isValidEmail = this.#isValidEmail.bind(this);
+        this.isValidPassword = this.#isValidPassword.bind(this);
+        this.isValidLogin = this.#isValidPassword.bind(this);
+        this.validateEmail = this.#validateEmail.bind(this);
+        this.validatePassword = this.#validatePassword.bind(this);
+        this.validateForm = this.#validateForm.bind(this);
+        this.handleSubmit = this.#handleSubmit.bind(this);
+        this.authenticate = this.#authenticate.bind(this);
+        this.canAuthenticate = this.#canAuthenticate.bind(this);
     }
 
     componentDidUpdate = (_, __) => {
@@ -144,4 +144,4 @@ class Login extends React.Component {
         );
     }
 }
-export default withRouter(Login);
+export default injectHookies(Login);
