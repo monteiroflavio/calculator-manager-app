@@ -3,8 +3,8 @@ import UserService from './users';
 
 class RecordService {
     constructor() {
-        this.userId = UserService.getUserId();
-        this.baseURL = `/v1/users/${this.userId}/records`
+        this.userId = new UserService().getUserId();
+        this.baseURL = `http://68.183.137.187:8080/v1/users/${this.userId}/records`
     }
 
     async list(q, limit, offset, sorting, sortingField) {

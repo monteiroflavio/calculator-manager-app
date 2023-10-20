@@ -3,21 +3,25 @@ import axios from 'axios';
 import TokenService from './tokens';
 
 class UserService {
-    static #setUserId(userId) {
+    constructor() {
+        console.log(process.env.API);
+        this.baseURL = `http://68.183.137.187:8080/v1/authenticate`;
+    }
+    #setUserId(userId) {
         localStorage.setItem('userId', userId);
     }
 
-    static getUserId() {
+    getUserId() {
         return localStorage.getItem('userId');
     }
 
-    static async authenticate(username, password) {
-        return axios.post("/v1/authenticate", {
+    async authenticate(username, password) {
+        return axios.post(this.baseURL, {
             "username": username,
             "password": password
         }).then((res) => {
             TokenService.setToken(res.data.token);
-            UserService.#setUserId(res.data.user?.id);
+            this.#setUserId(res.data.user?.id);
             return true;
         }).catch((_) => {
             return false;

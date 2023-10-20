@@ -22,6 +22,7 @@ class Login extends React.Component {
 
     constructor(props) {
         super(props);
+        this.userService = new UserService();
         this.state = {
             email: "",
             password: "",
@@ -67,7 +68,7 @@ class Login extends React.Component {
     };
 
     #authenticate = async () => {
-        let isAuthenticated = await UserService.authenticate(this.state.email, this.state.password);
+        let isAuthenticated = await this.userService.authenticate(this.state.email, this.state.password);
         if (isAuthenticated) {
             this.props.navigate('manager', { replace: true });
         } else {
@@ -76,7 +77,9 @@ class Login extends React.Component {
     }
 
     #canAuthenticate = () => {
-        return this.#isValidEmail() && this.#isValidPassword() && this.#isValidLogin();
+        return this.#isValidEmail()
+                && this.#isValidPassword()
+                && this.#isValidLogin();
     }
     
     #handleSubmit = e => {
