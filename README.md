@@ -13,13 +13,13 @@ cp .env.example .env.development.local
 docker compose up --build
 ```
 
-and it will be available at `127.0.0.1:3000`. In order to be able to use the webpage properly, `calculator-manager-api` also must be running. This project and `calculatr-manager-api` are both running in Docker. So, in order to test locally, API address is set to Docker's gateway `172.17.0.1`. This can be improved when ready to production.
+and it will be available at `127.0.0.1:3000`. In order to test locally, API address is hardcoded to a demo version of the API at `68.183.137.187`. This must be improved when ready to production.
 
 In order to login web page, use the following user:
 
 ```json
 { 
     "username": "foo@bar.com",
-    "password": "someEncryptedPassword"
+    "password": "AYag$vzzM/zXtSBs=$mI+9+Q3/yjkzvxEb2u1X9Sc3LNM="
 }
 ```

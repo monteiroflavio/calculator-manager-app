@@ -2,9 +2,9 @@
   "name": "calculator-manager-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://172.17.0.1:8080/",
+  "proxy": "http://68.183.137.187:8080/",
   "allowedHosts": [
-    "172.17.0.1"
+    "68.183.137.187"
   ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
