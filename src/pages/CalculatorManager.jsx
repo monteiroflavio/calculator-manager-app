@@ -31,16 +31,11 @@ class CalculatorManager extends React.Component {
             sorting: "",
             sortingField: "",
             pageNumber: 1,
-            itemsPerPage: 50,
+            itemsPerPage: 5,
             operations: [],
             records: [],
             errorToInsert: ""
         }
-        this.listOperations = this.#listOperations.bind(this);
-        this.listRecords = this.#listRecords.bind(this);
-        this.deleteRecord = this.#deleteRecord.bind(this);
-        this.insertRecord = this.#insertRecord.bind(this);
-        this.handleInsert = this.#handleInsert.bind(this);
     }
 
     componentDidMount () {

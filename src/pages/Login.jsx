@@ -29,15 +29,6 @@ class Login extends React.Component {
             errorPassword: "",
             errorLogin: ""
         };
-        this.isValidEmail = this.#isValidEmail.bind(this);
-        this.isValidPassword = this.#isValidPassword.bind(this);
-        this.isValidLogin = this.#isValidPassword.bind(this);
-        this.validateEmail = this.#validateEmail.bind(this);
-        this.validatePassword = this.#validatePassword.bind(this);
-        this.validateForm = this.#validateForm.bind(this);
-        this.handleSubmit = this.#handleSubmit.bind(this);
-        this.authenticate = this.#authenticate.bind(this);
-        this.canAuthenticate = this.#canAuthenticate.bind(this);
     }
 
     componentDidUpdate = (_, __) => {
